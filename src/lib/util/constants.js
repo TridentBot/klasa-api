@@ -1,8 +1,8 @@
 const { METHODS } = require("http");
 
-exports.OPTIONS = {
-    dashboardHooks: {
-        apiPrefix: "api/",
+module.exports.OPTIONS = {
+    api: {
+        prefix: "api/",
         origin: "*",
         port: 4000,
         http2: false
@@ -19,9 +19,9 @@ exports.OPTIONS = {
 const lowerMethods = {};
 for (const method of METHODS) lowerMethods[method] = method.toLowerCase();
 
-exports.METHODS_LOWER = lowerMethods;
+module.exports.METHODS_LOWER = lowerMethods;
 
-exports.RESPONSES = {
+module.exports.RESPONSES = {
     FETCHING_TOKEN: '{"message":"Error fetching token"}',
     NO_CODE: '{"message":"No code provided"}',
     UNAUTHORIZED: '{"message":"Unauthorized"}',
