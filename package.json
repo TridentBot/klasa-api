@@ -1,10 +1,10 @@
 {
-  "name": "klasa-dashboard-hooks",
-  "version": "0.0.1-dev",
-  "description": "Klasa Dashboard Hooks: a simple plugin for the klasa bot framework that exposes an api for use in a frontend framework.",
+  "name": "klasa-api",
+  "version": "0.0.1",
+  "description": "Klasa API: A simple api interface for klasa bots",
   "homepage": "https://klasa.js.org/",
   "bugs": {
-    "url": "https://github.com/dirigeants/klasa-dashboard-hooks/issues"
+    "url": "https://github.com/TridentBot/klasa-api/issues"
   },
   "license": "MIT",
   "author": "BDistin",
@@ -12,12 +12,11 @@
   "types": "typings/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dirigeants/klasa-dashboard-hooks.git"
+    "url": "https://github.com/TridentBot/klasa-api.git"
   },
   "scripts": {
-    "lint": "npx eslint --fix src && npx eslint --fix --config .eslintrcmd.json --ext md guides && npx tslint --fix 'typings/*.ts'",
-    "test:lint": "npx eslint src && npx tslint 'typings/*.ts' && npx eslint --config .eslintrcmd.json --ext md guides && npx markdownlint guides README.md",
-    "docs": "npx dg --source src --custom guides/.docconfig.json --output dist/docs.json --logging"
+    "lint": "eslint --fix src",
+    "test:lint": "eslint src"
   },
   "dependencies": {
     "node-fetch": "^2.6.0"
@@ -28,15 +27,9 @@
   },
   "devDependencies": {
     "@types/node": "^12.0.4",
-    "docgen": "github:dirigeants/docsgen",
     "eslint": "^5.16.0",
-    "eslint-config-klasa": "github:dirigeants/klasa-lint",
-    "eslint-plugin-markdown": "^1.0.0",
-    "markdownlint-cli": "^0.16.0",
-    "tslint": "^5.16.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
     "typescript": "^3.5.1"
-  },
-  "engines": {
-    "node": ">=10.0.0"
   }
 }

@@ -1,4 +1,4 @@
-const { Piece } = require('klasa');
+const { Piece } = require("klasa");
 
 /**
  * Base class for all Klasa Middleware. See {@tutorial CreatingMiddlewares} for more information how to use this class
@@ -9,12 +9,12 @@ const { Piece } = require('klasa');
 class Middleware extends Piece {
 
 
-	/**
+    /**
 	 * @typedef {external:PieceOptions} RouteOptions
 	 * @property {number} [priority]
 	 */
 
-	/**
+    /**
 	 * @since 0.0.1
 	 * @param {DashboardClient} client The Klasa client
 	 * @param {MiddlewareStore} store The Middleware Store
@@ -22,18 +22,18 @@ class Middleware extends Piece {
 	 * @param {boolean} core If the piece is in the core directory or not
 	 * @param {MiddlewareOptions} [options={}] Optional Middleware settings
 	 */
-	constructor(client, store, file, core, options = {}) {
-		super(client, store, file, core, options);
+    constructor(client, store, file, core, options = {}) {
+        super(client, store, file, core, options);
 
-		/**
+        /**
 		 * The priority in which this middleware should run
 		 * @since 0.0.1
 		 * @type {number}
 		 */
-		this.priority = options.priority;
-	}
+        this.priority = options.priority;
+    }
 
-	/**
+    /**
 	 * The run method to be overwritten in actual event handlers
 	 * @since 0.0.1
 	 * @param {KlasaIncomingMessage} request The http request
@@ -43,9 +43,9 @@ class Middleware extends Piece {
 	 * @abstract
 	 */
 	async run(request, response, route) { // eslint-disable-line
-		// Defined in extension Classes
-		throw new Error(`The run method has not been implemented by ${this.type}:${this.name}.`);
-	}
+        // Defined in extension Classes
+        throw new Error(`The run method has not been implemented by ${this.type}:${this.name}.`);
+    }
 
 }
 
