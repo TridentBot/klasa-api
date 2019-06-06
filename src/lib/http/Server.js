@@ -1,5 +1,5 @@
 const http = require("http");
-const { parse } = require("querystring");
+const { parse } = require("url");
 
 const { split } = require("../util/Util");
 const { METHODS_LOWER } = require("../util/constants");
@@ -26,7 +26,7 @@ class Server {
     }
 
     async handler(request, response) {
-        const info = new URL(request.url);
+        const info = parse(request.url, true);
         const splitURL = split(info.pathname);
         const route = this.client.routes.findRoute(request.method, splitURL);
 
@@ -34,7 +34,7 @@ class Server {
         request.originalUrl = request.originalUrl || request.url;
         request.path = info.pathname;
         request.search = info.search;
-        request.query = parse(info.searchParams.toString());
+        request.query = info.query;
 
         try {
             await this.client.middlewares.run(request, response, route);
