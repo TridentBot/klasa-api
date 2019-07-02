@@ -47,7 +47,7 @@ class Server {
 
     onError(error, request, response) {
         const code = response.statusCode = error.code || error.status || error.statusCode || 500;
-        response.end((error.length && error) || error.message || http.STATUS_CODES[code]);
+        response.end(JSON.stringify({ message: (error.length && error) || error.message || http.STATUS_CODES[code], success: false }));
     }
 
 }
