@@ -6,6 +6,21 @@ import { DataStore, Collection, Permissions } from 'discord.js';
 
 declare module 'klasa-api' {
 
+	
+	declare module 'discord.js' {
+		interface Client {
+			public server: Server;
+			public routes: RouteStore;
+			public middlewares: MiddlewareStore;
+		}
+	}
+
+	declare module 'klasa' {
+		interface KlasaClientOptions {
+			api?: KlasaAPIOptions;
+		}
+	}
+
 //#region Classes
 
 	export class APIClient extends KlasaClient {
