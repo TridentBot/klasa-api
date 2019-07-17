@@ -2,8 +2,8 @@ const { Piece } = require("klasa");
 
 class Middleware extends Piece {
 
-    constructor(client, store, file, core, options = {}) {
-        super(client, store, file, core, options);
+    constructor(store, file, core, options = {}) {
+        super(store, file, core, options);
 
         this.priority = options.priority;
     }

@@ -4,8 +4,8 @@ const { parse } = require("../util/Util");
 
 class Route extends Piece {
 
-    constructor(client, store, file, core, options = {}) {
-        super(client, store, file, core, options);
+    constructor(store, file, core, options = {}) {
+        super(store, file, core, options);
 
         this.route = this.client.options.api.prefix + options.route;
 
