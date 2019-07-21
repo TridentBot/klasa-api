@@ -4,9 +4,29 @@ import { SecureContextOptions, Server as HttpSecureServer } from 'tls';
 import { Http2SecureServer } from 'http2';
 import { DataStore, Collection, Permissions } from 'discord.js';
 
+declare module 'discord.js' {
+	import { Server, RouteStore, MiddlewareStore } from "klasa-api";
+
+	interface Client {
+		server: Server;
+		routes: RouteStore;
+		middlewares: MiddlewareStore;
+	}
+}
+
+declare module 'klasa' {
+	import { KlasaAPIOptions } from "klasa-api";
+
+	interface KlasaClientOptions {
+		api?: KlasaAPIOptions;
+	}
+}
+
 declare module 'klasa-api' {
 
 //#region Classes
+
+    export { APIClient as Client };
 
 	export class APIClient extends KlasaClient {
 		public constructor(options?: APIClientOptions);
@@ -14,9 +34,7 @@ declare module 'klasa-api' {
 		public server: Server;
 		public routes: RouteStore;
 		public middlewares: MiddlewareStore;
-	}
-
-	export { APIClient as Client };
+    }
 
 	export class Server {
 		public constructor(client: APIClient);
