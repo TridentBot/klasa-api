@@ -1,29 +1,9 @@
-import { KlasaClient, KlasaClientOptions, Piece, Store, PieceOptions, PieceDefaults, KlasaUser, KlasaGuild } from 'klasa';
-import { Server as HttpServer, IncomingMessage, ServerResponse } from 'http';
-import { SecureContextOptions, Server as HttpSecureServer } from 'tls';
-import { Http2SecureServer } from 'http2';
-import { DataStore, Collection, Permissions } from 'discord.js';
-
-declare module 'discord.js' {
-	import { Server, RouteStore, MiddlewareStore } from "klasa-api";
-
-	interface Client {
-		server: Server;
-		routes: RouteStore;
-		middlewares: MiddlewareStore;
-	}
-}
-
-declare module 'klasa' {
-	import { KlasaAPIOptions } from "klasa-api";
-
-	interface KlasaClientOptions {
-		api?: KlasaAPIOptions;
-	}
-}
-
 declare module 'klasa-api' {
-
+	import { KlasaClient, KlasaClientOptions, Piece, Store, PieceOptions, PieceDefaults, KlasaUser, KlasaGuild } from 'klasa';
+	import { Server as HttpServer, IncomingMessage, ServerResponse } from 'http';
+	import { SecureContextOptions, Server as HttpSecureServer } from 'tls';
+	import { Http2SecureServer } from 'http2';
+	import { DataStore, Collection, Permissions } from 'discord.js';
 //#region Classes
 
     export { APIClient as Client };
@@ -148,4 +128,22 @@ declare module 'klasa-api' {
 
 //#endregion Types
 
+}
+
+declare module 'discord.js' {
+	import { Server, RouteStore, MiddlewareStore } from "klasa-api";
+
+	interface Client {
+		server: Server;
+		routes: RouteStore;
+		middlewares: MiddlewareStore;
+	}
+}
+
+declare module 'klasa' {
+	import { KlasaAPIOptions } from "klasa-api";
+
+	interface KlasaClientOptions {
+		api?: KlasaAPIOptions;
+	}
 }
