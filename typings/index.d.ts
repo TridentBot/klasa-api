@@ -4,20 +4,6 @@ import { SecureContextOptions, Server as HttpSecureServer } from 'tls';
 import { Http2SecureServer } from 'http2';
 import { DataStore, Collection, Permissions } from 'discord.js';
 
-declare module 'discord.js' {
-	interface Client {
-		server: Server;
-		routes: RouteStore;
-		middlewares: MiddlewareStore;
-	}
-}
-
-declare module 'klasa' {
-	interface KlasaClientOptions {
-		api?: KlasaAPIOptions;
-	}
-}
-
 declare module 'klasa-api' {
 
 //#region Classes
