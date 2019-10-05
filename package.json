@@ -1,7 +1,7 @@
 {
   "name": "klasa-api",
   "version": "0.0.1",
-  "description": "Klasa API: A simple api interface for klasa bots",
+  "description": "Klasa API: A simple api interface for klasa bots.",
   "homepage": "https://klasa.js.org/",
   "bugs": {
     "url": "https://github.com/TridentBot/klasa-api/issues"
